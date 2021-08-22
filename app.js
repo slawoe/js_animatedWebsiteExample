@@ -29,6 +29,25 @@ function animateSlides() {
         name: "slide",
       })
       .addTo(controller);
+    const pageTl = gsap.timeline();
+    let nextSlide = slides.length - 1 === index ? "end" : slides[index + 1];
+    pageTl.fromTo(nextSlide, { y: "0%" }, { y: "50%" });
+    pageTl.fromTo(slide, { opacity: 1, scale: 1 }, { opacity: 0, scale: 0.5 });
+    pageTl.fromTo(nextSlide, { y: "50%" }, { y: "0%" }, "-=0.5");
+    pageScene = new ScrollMagic.Scene({
+      triggerElement: slide,
+      duration: "100%",
+      triggerHook: 0,
+    })
+      .setPin(slide, { pushFollowers: false })
+      .setTween(pageTl)
+      .addIndicators({
+        colorStart: "white",
+        colorTrigger: "white",
+        name: "page",
+        indent: 200,
+      })
+      .addTo(controller);
   });
 }
 
