@@ -176,9 +176,9 @@ h3 {
 .reveal-text {
   position: absolute;
   left: 0;
-  top: 0;
+  top: -15%;
   width: 100%;
-  height: 100%;
+  height: 150%;
   background: #17181a;
 }
 .nav-bar {
@@ -222,4 +222,7 @@ h3 {
   height: 3rem;
   border: 2px solid white;
   border-radius: 50%;
+}
+.scrollmagic-pin-spacer {
+  position: static !important;
 }
