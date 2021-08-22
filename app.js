@@ -23,11 +23,6 @@ function animateSlides() {
       reverse: false,
     })
       .setTween(slideTl)
-      .addIndicators({
-        colorStart: "white",
-        colorTrigger: "white",
-        name: "slide",
-      })
       .addTo(controller);
     const pageTl = gsap.timeline();
     let nextSlide = slides.length - 1 === index ? "end" : slides[index + 1];
@@ -41,12 +36,6 @@ function animateSlides() {
     })
       .setPin(slide, { pushFollowers: false })
       .setTween(pageTl)
-      .addIndicators({
-        colorStart: "white",
-        colorTrigger: "white",
-        name: "page",
-        indent: 200,
-      })
       .addTo(controller);
   });
 }
