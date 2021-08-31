@@ -97,6 +97,8 @@ h3 {
   color: white;
 }
 .nav-header {
+  position: relative;
+  z-index: 2;
   min-height: 10vh;
   width: 80%;
   margin: auto;
