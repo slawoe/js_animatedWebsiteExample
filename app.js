@@ -1,8 +1,9 @@
 let controller;
 let slideScene;
 let pageScene;
-let mouse = document.querySelector(".cursor");
-let mouseText = mouse.querySelector("span");
+const mouse = document.querySelector(".cursor");
+const mouseText = mouse.querySelector("span");
+const burger = document.querySelector(".burger");
 
 function animateSlides() {
   controller = new ScrollMagic.Controller();
@@ -42,10 +43,29 @@ function animateSlides() {
   });
 }
 
+function navToggle(e) {
+  if (!e.target.classList.contains("active")) {
+    e.target.classList.add("active");
+    gsap.to(".line1", 0.5, { rotate: "45", y: 5, background: "black" });
+    gsap.to(".line2", 0.5, { rotate: "-45", y: -5, background: "black" });
+    gsap.to(".nav-bar", 1, { clipPath: "circle(2500px at 100% -10%)" });
+    gsap.to("#logo", 1, { color: "black" });
+    document.body.classList.add("hide");
+  } else {
+    e.target.classList.remove("active");
+    gsap.to(".line1", 0.5, { rotate: "0", y: 0, background: "white" });
+    gsap.to(".line2", 0.5, { rotate: "0", y: 0, background: "white" });
+    gsap.to(".nav-bar", 1, { clipPath: "circle(50px at 100% -10%)" });
+    gsap.to("#logo", 1, { color: "white" });
+    document.body.classList.remove("hide");
+  }
+}
+
 function cursor(e) {
   mouse.style.top = e.pageY + "px";
   mouse.style.left = e.pageX + "px";
 }
+
 function activeCursor(e) {
   const item = e.target;
   if (item.id === "logo" || item.classList.contains("burger")) {
@@ -63,6 +83,9 @@ function activeCursor(e) {
     mouseText.innerText = "";
   }
 }
+
 window.addEventListener("mousemove", cursor);
 window.addEventListener("mouseover", activeCursor);
+burger.addEventListener("click", navToggle);
+
 animateSlides();
