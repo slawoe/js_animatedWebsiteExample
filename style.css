@@ -93,6 +93,10 @@ h2,
 h3 {
   font-family: "AbrilFatface", serif;
 }
+a {
+  color: white;
+  text-decoration: none;
+}
 #logo {
   color: white;
 }
@@ -285,7 +289,6 @@ h3 {
   align-items: center;
   width: 70%;
   margin: 5rem auto auto;
-  color: white;
   flex-wrap: wrap;
 }
 .fashion-img {
@@ -296,7 +299,7 @@ h3 {
   flex: 1;
   flex-basis: 25rem;
 }
-.fashion-text h1 {
+.fashion-text h2 {
   font-size: 6rem;
   padding: 5rem 0;
 }
@@ -310,12 +313,105 @@ h3 {
   height: 100%;
   object-fit: cover;
 }
-.fashion1 h1 {
+.fashion1 h2 {
   color: rgb(255, 139, 93);
 }
-.fashion2 h1 {
+.fashion2 h2 {
   color: rgb(167, 110, 231);
 }
-.fashion3 h1 {
+.fashion3 h2 {
   color: rgb(86, 124, 228);
+}
+
+@media screen and (max-width: 1024px) {
+  .line1,
+  .line2 {
+    width: 1rem;
+    height: 0.2rem;
+    margin: 0.4rem;
+    pointer-events: none;
+  }
+  .slide {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-img {
+    position: relative;
+    flex: 1;
+    overflow: hidden;
+  }
+  .hero-img img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  .hero-desc {
+    position: relative;
+    padding-left: 0;
+    display: block;
+  }
+  .hero-desc h2 {
+    font-size: 1.5rem;
+    padding: 2rem 0 1rem;
+  }
+  .hero-desc p {
+    font-size: 1rem;
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+  }
+  .nav-bar {
+    display: block;
+    text-align: center;
+  }
+  .reveal-img,
+  .reveal-text {
+    display: none;
+  }
+  .nav-links {
+    font-size: 1rem;
+    padding-top: 6.25rem;
+    flex-basis: 0;
+  }
+  .nav-links h3 {
+    padding: 1.5rem 0;
+  }
+  .contact {
+    flex-basis: 0;
+  }
+  .contact h2 {
+    margin: 1.25rem 0 1rem;
+    font-size: 1.5rem;
+    padding: 0;
+  }
+  .contact p {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+  .cursor {
+    display: none;
+  }
+  .fashion1,
+  .fashion2,
+  .fashion3 {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+  }
+  .fashion-text {
+    flex-basis: 0;
+  }
+  .fashion-text h2 {
+    font-size: 1.5rem;
+    padding: 2rem 0 1rem;
+  }
+  .fashion-text p {
+    font-size: 1rem;
+    padding: 1rem 0 5rem;
+    margin: 0;
+  }
 }
